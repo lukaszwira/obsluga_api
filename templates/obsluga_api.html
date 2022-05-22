@@ -1,0 +1,25 @@
+
+<html>
+<body>
+
+<form method="post" action="{{ url_for('message') }}">
+
+  <label for="currency">Wybierz walutę: </label>
+  <select name="currency" id="cars">
+    {% for rate in rates %}
+    <option value="{{rate.code}}">{{rate.currency}}</option>
+    {% endfor %}
+  </select>
+  <br><br>
+  <label for="amount">Ilość: </label>
+    <input type="text" id="amount" name="amount"><br>
+  <br>
+  <input type="submit" value="Przelicz"><br>
+</form>
+
+{% if result %}
+<div class="result">{{ result }} zł</div>
+{% endif %}
+
+</body>
+</html>
